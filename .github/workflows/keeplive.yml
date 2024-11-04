@@ -21,6 +21,8 @@ jobs:
 
       - name: Commit changes  
         run: |  
+          git config --local user.email "mohamadrezaeimohammad@gmail.com"  
+          git config --local user.name "mohamadrezaeimohammad"
           git add f.txt  # Change this to your file path  
           git commit -m "Update file"  
           git push origin main   
