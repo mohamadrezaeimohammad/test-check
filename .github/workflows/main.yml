@@ -1,0 +1,42 @@
+name: keeplive2
+on: 
+  workflow_dispatch:  
+    inputs:  
+      operating_system:
+        description: 'Operating System'
+        type: choice
+        required: true
+        default: 'ubuntu-latest'
+        options:
+          - 'ubuntu-latest'
+          - 'windows-latest'
+      branch:  
+        description: 'branch'  
+        required: true  
+        default: 'main'
+
+jobs:  
+  update-file:  
+    runs-on: ${{github.event.inputs.operating_system}}    
+    
+    steps:  
+      - name: Checkout repository  
+        uses: actions/checkout@v4
+        with:
+          ref: ${{github.event.inputs.branch}}  
+
+      - name: Update file  
+        run: |  
+          echo "This file was updated on $(date)" > f.txt 
+
+      - name: Commit changes  
+        run: |  
+          # git config --local user.email "mohamadrezaeimohammad@gmail.com"  
+          # git config --local user.name "mohamadrezaeimohammad"
+          git config --global user.name "Your Name"  
+          git config --global user.email "you@example.com" # Use your email
+          git add f.txt  # Change this to your file path  
+          git commit -m "Update file"  
+          git push origin main   
+          env:  
+            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
