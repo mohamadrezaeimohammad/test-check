@@ -3,7 +3,20 @@ name: keeplive
 on:  
   schedule:  
     - cron: '0 0 */15 * *'
-
+  workflow_dispatch:  
+    inputs:  
+      operating_system:
+        description: 'Operating System'
+        type: choice
+        required: true
+        default: 'ubuntu-latest'
+        options:
+          - 'ubuntu-latest'
+          - 'windows-latest'
+      branch:  
+        description: 'branch'  
+        required: true  
+        default: 'main'
 jobs:  
   update-file:  
     runs-on: ubuntu-latest  
