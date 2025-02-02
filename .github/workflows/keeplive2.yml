@@ -28,7 +28,12 @@ jobs:
       - name: Update file  
         run: |  
           echo "This file was updated on $(date)" > f.txt 
-
+      - name: Generate unique identifier  
+        id: generate_id  
+        run: |  
+          echo "DATE=$(date +'%Y%m%d-%H%M%S')" >> $GITHUB_ENV  
+          uuid=$(uuidgen)  
+          echo "UUID=${uuid}" >> $GITHUB_ENV
       - name: Commit changes  
         run: |  
           # git config --local user.email "mohamadrezaeimohammad@gmail.com"  
@@ -36,7 +41,7 @@ jobs:
           git config --global user.name "TEST"  
           git config --global user.email "TEST@example.com" # Use your email
           git add f.txt  # Change this to your file path  
-          git commit -m "Update file"  
+          git commit -m "Automated commit: Date=${DATE}, UUID=${UUID}"
           git push origin main   
           # env:  
           #   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
