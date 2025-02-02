@@ -33,10 +33,10 @@ jobs:
         run: |  
           # git config --local user.email "mohamadrezaeimohammad@gmail.com"  
           # git config --local user.name "mohamadrezaeimohammad"
-          git config --global user.name "Your Name"  
-          git config --global user.email "you@example.com" # Use your email
+          git config --global user.name "TEST"  
+          git config --global user.email "TEST@example.com" # Use your email
           git add f.txt  # Change this to your file path  
           git commit -m "Update file"  
           git push origin main   
-          env:  
-            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # env:  
+          #   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
