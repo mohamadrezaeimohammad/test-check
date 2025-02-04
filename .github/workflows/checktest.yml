@@ -1,10 +1,10 @@
-name: checktest
-on:
-  push:
-    branches:
-      - main
-  schedule:
-    - cron: '*/30 * * * *'
+name: disabled action
+# on:
+#   push:
+#     branches:
+#       - main
+#   schedule:
+#     - cron: '*/30 * * * *'
 jobs:
   test:
     name: Test
