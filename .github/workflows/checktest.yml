@@ -1,3 +1,4 @@
+name: checktest
 on:
   push:
     branches:
