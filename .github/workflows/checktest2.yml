@@ -1,10 +1,10 @@
 name: checktest 2
-on:
-  push:
-    branches:
-      - main
-  schedule:
-    - cron: '*/30 * * * *'
+# on:
+#   push:
+#     branches:
+#       - main
+#   schedule:
+#     - cron: '*/30 * * * *'
 jobs:
   test:
     name: Test
